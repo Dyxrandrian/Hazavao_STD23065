@@ -25,7 +25,7 @@ public class ChatGptService {
             "role",
             "user",
             "content",
-            "Hazavao amin’ny teny malagasy ilay teny hoe \"" + word + "\"."));
+            "Hazavao amin’ny teny malagasy ilay teny hoe :  \"" + word + "\"."));
     requestBody.put("messages", messages);
 
     Request request =
