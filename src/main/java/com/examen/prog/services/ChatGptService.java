@@ -21,20 +21,20 @@ public class ChatGptService {
 
     List<Map<String, String>> messages = new ArrayList<>();
     messages.add(
-      Map.of(
-        "role",
-        "user",
-        "content",
-        "Hazavao amin’ny teny malagasy ilay teny hoe \"" + word + "\"."
+        Map.of(
+          "role",
+          "user",
+          "content",
+          "Hazavao amin’ny teny malagasy ilay teny hoe \"" + word + "\"."
     ));
     requestBody.put("messages", messages);
 
     Request request =
-      new Request.Builder()
-        .url(API_URL)
-        .addHeader("Authorization", "Bearer " + API_KEY)
-        .post(RequestBody.create(MediaType.get("application/json"), toJson(requestBody)))
-        .build();
+        new Request.Builder()
+          .url(API_URL)
+          .addHeader("Authorization", "Bearer " + API_KEY)
+          .post(RequestBody.create(MediaType.get("application/json"), toJson(requestBody)))
+          .build();
 
     try (Response response = client.newCall(request).execute()) {
       if (!response.isSuccessful()) throw new IOException("Erreur API: " + response);
